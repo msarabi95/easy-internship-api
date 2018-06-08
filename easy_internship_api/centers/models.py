@@ -21,14 +21,15 @@ class Specialty(models.Model):
 class Location(models.Model):
     center = models.ForeignKey(
         'centers.Center',
-        on_delete=models.SET_NULL,
+        null=True, on_delete=models.SET_NULL,
         )
     specialty = models.ForeignKey(
         'centers.Specialty',
-        on_delete=models.SET_NULL,
+        null=True, on_delete=models.SET_NULL,
     )
 
     description = models.CharField(
+        max_length=100,
         help_text="an optional description in case of, for example, multiple locations"
         "under a specialty within the same center"
     )
@@ -37,4 +38,4 @@ class Location(models.Model):
         return "{} @ {}".format(
             self.specialty.name,
             self.center.name,
-        ) + " {}".format(self.description) if self.description else ""
+        ) + (" ({})".format(self.description) if self.description else "")
