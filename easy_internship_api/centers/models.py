@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 
 
@@ -41,4 +38,3 @@ class Location(models.Model):
             self.specialty.name,
             self.center.name,
         ) + " {}".format(self.description) if self.description else ""
-
