@@ -7,7 +7,7 @@ class Center(models.Model):
     is_home = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return self.name  # pragma: no cover
 
 
 class Specialty(models.Model):
@@ -15,7 +15,7 @@ class Specialty(models.Model):
     short_name = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.name
+        return self.name  # pragma: no cover
 
 
 class Location(models.Model):

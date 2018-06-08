@@ -1,0 +1,6 @@
+[run]
+source =
+    easy_internship_api/
+omit =
+    easy_internship_api/manage.py
+    easy_internship_api/easy_internship_api/wsgi.py
