@@ -11,6 +11,10 @@
 	],
 	"settings": {
 		"python.pythonPath": "${workspaceFolder}/venv/bin/python3.6",
+		"files.exclude": {
+			"**/__pycache__": true,
+			"**/*.pyc": true
+		},
 		"todo.file": ".tasks.todo",
 		"todo.embedded.include": [
 			"**/*.py"
