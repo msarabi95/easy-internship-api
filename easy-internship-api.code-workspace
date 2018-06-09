@@ -16,7 +16,10 @@
 			"**/*.py"
 		],
 		"todo.embedded.exclude": [
-			"**/venv/**"
-		]
+			"**/venv/**",
+			"easy_internship_api/**/*.py",
+			"easy_internship_api/manage.py"
+		],
+		"todo.embedded.groupByFile": true
 	}
 }
