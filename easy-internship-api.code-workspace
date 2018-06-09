@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"name": "Django Root",
+			"path": "easy_internship_api"
+		},
+		{
+			"name": "Repository Root",
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.pythonPath": "${workspaceFolder}/venv/bin/python3.6",
+		"todo.file": ".tasks.todo",
+		"todo.embedded.include": [
+			"**/*.py"
+		],
+		"todo.embedded.exclude": [
+			"**/venv/**"
+		]
+	}
+}
