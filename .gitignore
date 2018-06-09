@@ -1,5 +1,15 @@
+# Virtual environment directory
 venv/
+
+# .pyc files
 *.pyc
+
+# SQLite3 database
 db.sqlite3
+
+# Coverage files
 .coverage
 htmlcov/
+
+# API configuration file
+easy_internship_api/easy_internship_api/config.py
