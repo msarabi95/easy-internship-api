@@ -4,7 +4,7 @@ from django.db import models
 # ? TODO: Change to `Area`/`Field`
 class Specialty(models.Model):
     name = models.CharField(max_length=100)
-    short_name = models.CharField(max_length=10)
+    short_name = models.CharField(max_length=10)  # TODO: all-caps validator
 
     # TODO
     # class Meta:
@@ -22,7 +22,7 @@ class Specialty(models.Model):
 
 class Center(models.Model):
     name = models.CharField(max_length=100)
-    short_name = models.CharField(max_length=10)
+    short_name = models.CharField(max_length=10)  # TODO: all-caps validator
     is_home = models.BooleanField(default=False)
 
     def __str__(self):
@@ -53,23 +53,34 @@ class Location(models.Model):
         ) + (" ({})".format(self.description) if self.description else "")
 
 
-# ? TODO: `SubmissionRestriction` as an abstract model
-# Seat limits and time limits then become 2 types of restrictions.
-
-class SeatLimit(models.Model):
+class PositionLimit(models.Model):
     # TODO
     # ? affected_dates = DateRangeField
     # offered_seats = PositiveIntegerField
     pass
 
-class SubmissionRestriction(models.Model):
-    # TODO
+
+# ? TODO: move to plans app (? maybe this could be at the API level)
+class SubmissionRestriction(object):
+
+    def passed(self):
+        raise NotImplementedError
+
+
+class AvailabilityRestriction(SubmissionRestriction, models.Model):
+    # is_strict ?
+    pass
+
+
+class TimeRestriction(SubmissionRestriction, models.Model):
     # target_group [optional] = generic(`TraineeCategory` | `Batch`)
     # ? target_date_range [optional] = DateTimeRangeField
     # target_locations [optional; could be target centers as well]
 
     # type = open/close
-    # effective_date
-    
-    # ? allow_beyond_seat_limit [? here vs. somewhere else]
+    # affected_dates = DateTimeRangeField
+    pass
+
+
+class BlueprintRestriction(SubmissionRestriction):
     pass
