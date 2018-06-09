@@ -1,4 +1,10 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "python.pythonPath": "${workspaceRoot}/venv/bin/python3.6"
+    "python.pythonPath": "${workspaceRoot}/venv/bin/python3.6",
+    "todohighlight.include": [
+        "**/*.py"
+    ],
+    "todohighlight.exclude": [
+        "**/venv/**"
+    ]
 }
