@@ -4,7 +4,7 @@ python:
 env:
   - SETTINGS_DIR="easy_internship_api/easy_internship_api"
 before_install:
-  - cp $SETTINGS_DIR/config.template.py $SETTINGS_DIR/config.py
+  - sudo cp $SETTINGS_DIR/config.template.py $SETTINGS_DIR/config.py
 install:
   - pip install -r requirements.txt
 script:
