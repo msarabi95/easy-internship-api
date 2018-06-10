@@ -123,4 +123,4 @@ STATIC_URL = '/static/'
 
 
 # Installation-specific preferences
-from config import *
+from easy_internship_api.config import *
