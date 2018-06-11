@@ -10,7 +10,7 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "${workspaceFolder}/venv/bin/python3.6",
+		"python.pythonPath": "${workspaceFolder}/venv/bin/python",
 		"files.exclude": {
 			"**/__pycache__": true,
 			"**/*.pyc": true
