@@ -5,6 +5,7 @@ from django.db import models
 
 
 class TraineeCategory(models.Model):
+    # TODO: set up profile schema using MongoDB
     pass
 
 
@@ -72,7 +73,34 @@ class TraineeProfile(models.Model):
     )
     start_date = models.DateField()  # here vs. in blueprint?
 
-    # TODO: Set up EAV for all other fields
+    @classmethod
+    def from_db(cls, *args, **kwargs):
+        instance = super().from_db(*args, **kwargs)
+
+        # TODO: fetch remaining fields from MongoDB based
+        #       on schema specified for trainee category
+
+        # For now, MongoDB fields will be stored as basic attributes;
+        # this means features like automatic refreshing will not be possible.
+        # Optimally, they should be retrieved from a cache or directly from
+        # the database using a __getattr__ call.
+
+        return instance
+
+    def refresh_from_db(self, *args, **kwargs):
+        super().refresh_from_db(*args, **kwargs)
+
+        # TODO: refresh MongoDB fields
+
+    def clean(self):
+        pass
+
+        # TODO: validate MongoDB fields againts schema specified fro trainee category
+
+    def save(self, *args, **kwargs):
+        super().save(self, *args, **kwargs)
+
+        # TODO: save/update MongoDB fields
 
     def __str__(self):
         pass
