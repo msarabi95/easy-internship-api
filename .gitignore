@@ -1,6 +1,9 @@
 # Virtual environment directory
 venv/
 
+# VSCode files
+easy_internship_api/.vscode/.ropeproject/objectdb
+
 # .pyc files
 *.pyc
 
