@@ -2,35 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": true,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${file}",
-            "cwd": "${workspaceRoot}",
-            "env": {},
-            "envFile": "${workspaceRoot}/.env",
-            "debugOptions": [
-                "WaitOnAbnormalExit",
-                "WaitOnNormalExit",
-                "RedirectOutput"
-            ]
-        },
-        {
             "name": "Django Run",
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceRoot}/easy_internship_api/manage.py",
-            "cwd": "${workspaceRoot}/easy_internship_api/",
+            "program": "${workspaceRoot}/manage.py",
+            "cwd": "${workspaceRoot}/",
             "args": [
                 "runserver",
                 "--noreload"
             ],
             "env": {},
-            "envFile": "${workspaceRoot}/venv",
+            "envFile": "${workspaceRoot}/../venv",
             "debugOptions": [
                 "WaitOnAbnormalExit",
                 "WaitOnNormalExit",
@@ -44,13 +28,13 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceRoot}/easy_internship_api/manage.py",
-            // "cwd": "${workspaceRoot}/easy_internship_api/",
+            "program": "${workspaceRoot}/manage.py",
+            // "cwd": "${workspaceRoot}/",
             "args": [
                 "test"
             ],
             "env": {},
-            "envFile": "${workspaceRoot}/venv",
+            "envFile": "${workspaceRoot}/../venv",
             "debugOptions": [
                 "WaitOnAbnormalExit",
                 "WaitOnNormalExit",
