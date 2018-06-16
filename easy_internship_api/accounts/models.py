@@ -3,10 +3,36 @@ from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.db import models
 
+from accounts.documents import ProfileFormat
+
 
 class TraineeCategory(models.Model):
-    # TODO: set up profile schema using MongoDB
-    pass
+    name = models.CharField(max_length=50)
+
+    # profile fields
+    profile_format_id = models.CharField(max_length=50)
+
+    def get_profile_format(self):
+        """
+        Return a `ProfileFormat` instance describing profile fields
+        required for trainees belonging to this trainee category.
+        """
+        pass
+
+    def set_profile_format(self):
+        pass
+
+    profile_format = property(
+        get_profile_format,
+        set_profile_format,
+        doc="Profile format of trainees belonging to this category."
+    )
+
+    def save(self, *args, **kwargs):
+        if self.id is None:
+            profile_format = ProfileFormat()
+            self.profile_format_id = profile_format.id
+        super().save(*args, **kwargs)
 
 
 class TrainingPeriod(models.Model):
