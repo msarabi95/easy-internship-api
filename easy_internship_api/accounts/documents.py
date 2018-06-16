@@ -6,6 +6,6 @@ class ProfileField(mongo.EmbeddedDocument):
     name = mongo.StringField()
     mongo_class = mongo.StringField()
 
-class ProfileFormat(mongo.Document):
+class ProfileSchema(mongo.Document):
     name = mongo.StringField()
     fields = mongo.EmbeddedDocumentListField(ProfileField)

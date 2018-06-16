@@ -3,35 +3,35 @@ from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.db import models
 
-from accounts.documents import ProfileFormat
+from accounts.documents import ProfileSchema
 
 
 class TraineeCategory(models.Model):
     name = models.CharField(max_length=50)
 
     # profile fields
-    profile_format_id = models.CharField(max_length=50)
+    profile_schema_id = models.CharField(max_length=50)
 
-    def get_profile_format(self):
+    def get_profile_schema(self):
         """
-        Return a `ProfileFormat` instance describing profile fields
+        Return a `ProfileSchema` instance describing profile fields
         required for trainees belonging to this trainee category.
         """
+        return ProfileSchema.objects.get(id=self.profile_schema_id)
+
+    def set_profile_schema(self):
         pass
 
-    def set_profile_format(self):
-        pass
-
-    profile_format = property(
-        get_profile_format,
-        set_profile_format,
+    profile_schema = property(
+        get_profile_schema,
+        set_profile_schema,
         doc="Profile format of trainees belonging to this category."
     )
 
     def save(self, *args, **kwargs):
         if self.id is None:
-            profile_format = ProfileFormat()
-            self.profile_format_id = profile_format.id
+            profile_schema = ProfileSchema().save()
+            self.profile_schema_id = profile_schema.id
         super().save(*args, **kwargs)
 
 
